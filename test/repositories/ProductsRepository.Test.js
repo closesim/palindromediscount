@@ -9,4 +9,12 @@ describe('Product Repository Test', () => {
     const [{ id }] = await ProductsRepository.getById(ID);
     assert.equal(id, ID);
   });
+
+  it('Should search by term in brand and description', async () => {
+    const TERM = 'cxzbz';
+    const result = await ProductsRepository.findProduct(TERM);
+    result.forEach(({ description, brand }) => {
+      assert(description.includes(TERM) || brand.includes(TERM));
+    });
+  });
 });
