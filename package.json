@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './test/**/*.Test.js'",
+    "test": "mocha './test/**/*.Test.js' --exit",
+    "test-debug": "mocha './test/**/*.Test.js' --exit --inspect-brk",
     "pretest": "eslint --ignore-path .gitignore .",
     "start": "node index.js",
-    "debug": "APP_ENV=dev node index.js"
+    "debug": "node index.js"
   },
   "repository": {
     "type": "git",
