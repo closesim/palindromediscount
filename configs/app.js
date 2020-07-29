@@ -2,6 +2,8 @@ require('dotenv').config();
 
 const assert = require('assert');
 
+const API_BASE = '/palindrome-discount';
+
 const {
   PORT,
   MONGODB_USER,
@@ -18,6 +20,7 @@ assert(MONGODB_PASSWORD, 'MONGODB_PASSWORD is required');
 
 module.exports = {
   PORT,
+  API_BASE,
   database: {
     MONGODB_USER,
     MONGODB_PASSWORD,
