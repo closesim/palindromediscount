@@ -32,7 +32,7 @@ describe('Products Controller Test', () => {
       });
   });
 
-  it.only('Should return 2 products with discount using text', () => {
+  it('Should return 2 products with discount using text', () => {
     const TERM = 'abba';
     return chai
       .request(app)
