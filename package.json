@@ -1,0 +1,41 @@
+{
+  "name": "palindromediscount",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha './test/**/*.Test.js' --exit",
+    "test-debug": "mocha './test/**/*.Test.js' --exit --inspect-brk",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "start": "node index.js",
+    "debug": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/closesim/palindromediscount.git"
+  },
+  "author": "Miguel Borja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/closesim/palindromediscount/issues"
+  },
+  "homepage": "https://github.com/closesim/palindromediscount#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.26"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.4",
+    "mocha": "^8.0.1",
+    "sinon": "^9.0.2"
+  }
+}
