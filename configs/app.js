@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const assert = require('assert');
 
-const API_BASE = '/palindrome-discount';
+const API_BASE = '/walmart-discount/api';
 
 const {
   PORT,
