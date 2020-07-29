@@ -1,0 +1,40 @@
+version: "3.5"
+services:
+  mongodb:
+    image: mongo:3.6.8
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: "${MONGODB_USER}"
+        MONGO_INITDB_ROOT_PASSWORD: "${MONGODB_PASSWORD}"
+    ports:
+      - 27017:27017
+    networks:
+      - dev
+  mongoseed:
+    build: ./mongoseed
+    environment:
+        MONGODB_USER: "${MONGODB_USER}"
+        MONGODB_PASSWORD: "${MONGODB_PASSWORD}"
+        MONGODB_DB: "${MONGODB_DB}"
+    networks:
+      - dev
+    links:
+      - mongodb
+  webserver:
+    build: .
+    environment:
+        MONGODB_USER: "${MONGODB_USER}"
+        MONGODB_PASSWORD: "${MONGODB_PASSWORD}"
+        MONGODB_DB: "${MONGODB_DB}"
+        PORT: "${PORT}"
+        MONGODB_HOST: "mongodb"
+        MONGODB_PORT: "${MONGODB_PORT}"
+    ports:
+      - 3000:3000
+    networks:
+      - dev
+    links:
+      - mongodb
+
+networks:
+  dev:
+    driver: bridge
