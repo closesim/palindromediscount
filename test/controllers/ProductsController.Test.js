@@ -47,4 +47,11 @@ describe('Products Controller Test', () => {
         });
       });
   });
+
+  it('Should respond 400 for no term query', () => chai
+    .request(app)
+    .get(`${API_BASE}/products/search`)
+    .then(({ status }) => {
+      assert.equal(status, 400);
+    }));
 });
