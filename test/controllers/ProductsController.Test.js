@@ -48,6 +48,18 @@ describe('Products Controller Test', () => {
       });
   });
 
+  it('Should return no products because search term is too short', () => {
+    const TERM = 'ab';
+    return chai
+      .request(app)
+      .get(`${API_BASE}/products/search`)
+      .query({ term: TERM })
+      .then(({ status, body }) => {
+        assert.equal(status, 200);
+        assert.equal(body.length, 0);
+      });
+  });
+
   it('Should respond 400 for no term query', () => chai
     .request(app)
     .get(`${API_BASE}/products/search`)

@@ -1,5 +1,4 @@
 const ProductsController = module.exports;
-
 const ProductServices = require('../services/Products.service');
 
 ProductsController.search = (req, res, next) => {
