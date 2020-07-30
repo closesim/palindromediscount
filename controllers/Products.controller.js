@@ -10,6 +10,6 @@ ProductsController.search = (req, res, next) => {
   }
 
   return ProductServices.search(term).then((data) => {
-    res.send(data);
+    res.json(data);
   }).catch(next);
 };
