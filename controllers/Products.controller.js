@@ -1,5 +1,4 @@
 const ProductsController = module.exports;
-
 const ProductServices = require('../services/Products.service');
 
 ProductsController.search = (req, res, next) => {
@@ -10,6 +9,6 @@ ProductsController.search = (req, res, next) => {
   }
 
   return ProductServices.search(term).then((data) => {
-    res.send(data);
+    res.json(data);
   }).catch(next);
 };

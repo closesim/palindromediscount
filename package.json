@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './test/**/*.Test.js' --exit",
-    "test-debug": "mocha './test/**/*.Test.js' --exit --inspect-brk",
+    "test": "nyc mocha './test/**/*.Test.js' --exit",
+    "test-debug": "nyc mocha './test/**/*.Test.js' --exit --inspect-brk",
     "pretest": "eslint --ignore-path .gitignore .",
     "start": "node index.js",
     "debug": "node index.js"
@@ -36,6 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.4",
     "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
     "sinon": "^9.0.2"
   }
 }

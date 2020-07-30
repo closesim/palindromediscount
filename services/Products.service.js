@@ -3,6 +3,7 @@ const { checkTextForPal } = require('../utils/palindrome.util');
 const ProductsRepository = require('../repositories/Products.repository');
 
 const DEFAULT_DISCOUNT = 50;
+const MIN_TERM_LENGTH = 3;
 
 ProductsService.applyDiscountforPalProds = (productArray) => productArray.map((product) => {
   const { brand, description } = product;
@@ -21,6 +22,7 @@ ProductsService.search = async (term) => {
     result = await ProductsRepository.getById(term);
     return ProductsService.applyDiscountforPalProds(result);
   }
+  if (term.length < MIN_TERM_LENGTH) return [];
   result = await ProductsRepository.findProduct(term);
   if (checkTextForPal(term)) return ProductsService.applyDiscount(result);
 
