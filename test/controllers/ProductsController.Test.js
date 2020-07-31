@@ -19,6 +19,22 @@ describe('Products Controller Test', () => {
     sandbox.restore();
   });
 
+  it('Should return products with discount with no palindrome in term', () => {
+    const TERM = 'asd';
+    return chai
+      .request(app)
+      .get(`${API_BASE}/products/search`)
+      .query({ term: TERM })
+      .then(({ status, body }) => {
+        assert.equal(status, 200);
+        assert(body.length);
+        body.forEach((product) => {
+          assert(product.discount);
+          assert.equal(product.discount, 50);
+        });
+      });
+  });
+
   it('Should return 1 product with discount', () => {
     const TERM = '1';
     return chai
