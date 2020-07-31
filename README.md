@@ -30,3 +30,4 @@ Default API URL:
 
     http://localhost:3000/walmart-discount/api/api-docs
     http://localhost:3000/walmart-discount/api/products
+    http://localhost:3000/walmart-discount/healthcheck
