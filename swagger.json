@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This API feed the Frontend at [https://walmart-discount-ng.herokuapp.com/]",
+    "version": "1.0.0",
+    "title": "Palindrome Discount",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    }
+  },
+  "basePath": "/walmart-discount/api",
+  "tags": [
+    {
+      "name": "products",
+      "description": "Products API"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/products/search": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Look for products",
+        "description": "",
+        "operationId": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "term",
+            "type": "string",
+            "description": "Search term to look for",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "400": {
+            "description": "No search term supplied"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "brand": {
+          "type": "string",
+          "format": "string"
+        },
+        "description": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "image": {
+          "type": "string",
+          "format": "string"
+        },
+        "discount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Repository",
+    "url": "https://github.com/closesim/palindromediscount"
+  }
+}

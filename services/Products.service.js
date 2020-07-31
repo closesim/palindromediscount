@@ -25,6 +25,5 @@ ProductsService.search = async (term) => {
   if (term.length < MIN_TERM_LENGTH) return [];
   result = await ProductsRepository.findProduct(term);
   if (checkTextForPal(term)) return ProductsService.applyDiscount(result);
-
-  return result;
+  return ProductsService.applyDiscountforPalProds(result);
 };
